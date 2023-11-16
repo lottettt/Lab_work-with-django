@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>Well come to drive thru system</title>  
+{% endblock %}
+
+{% block content %}
+    <h1>
+        This in home page
+    </h1>
+    <h2>
+        My name is : {{name | upper}}
+        <br>
+        my age is : {{age}}
+    </h2>
+    {% if age > 20 %}
+        You are mature
+    {% endif %}
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+    
+{% endblock %}
