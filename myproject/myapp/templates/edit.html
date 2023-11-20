@@ -6,17 +6,17 @@
 
 {% block content %}
     <h2 class="text-center">
-        This in form page
+        Edit page
     </h2>
-    <form method="POST" action="form">
+    <form method="POST">
         {% csrf_token %}
         <div class="form-group mb-3">
             <label for="name">Name</label>
-            <input type="text" name="name" class="form-control">
+            <input type="text" name="name" class="form-control" value="{{person.name}}">
         </div>
         <div class="form-control mb-3">
             <label for="age">Age</label>
-            <input type="number" name="age" class="form-control">
+            <input type="number" name="age" class="form-control" value="{{person.age}}">
         </div>
 
         <input type="submit" value="Submit" class="btn btn-success">

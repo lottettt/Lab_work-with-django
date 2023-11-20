@@ -5,17 +5,37 @@
 {% endblock %}
 
 {% block content %}
-    <h1>
-        This in home page
-    </h1>
-    <h2>
-        My name is : {{name | upper}}
-        <br>
-        my age is : {{age}}
-    </h2>
-    {% if age > 20 %}
-        You are mature
+    <h2 class="text-center">All reccord data</h2>
+
+    {% if messages %}
+        <div class="alert alert-success" role="alert">
+            {{messages}}
+        </div>
     {% endif %}
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-    
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">Date</th>
+            <th scope="col" style="width: 1%"></th>
+            <th scope="col" style="width: 1%"></th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for person in all_person %}
+            <tr>
+                <th scope="row">{{person.id}}</th>
+                <td>{{person.name}}</td>
+                <td>{{person.age}}</td>
+                <td>{{person.date}}</td>
+                <td><a href="edit/{{person.id}}" class="btn btn-warning">Edit</a></td>
+                <td><a href="delete/{{person.id}}" class="btn btn-danger" onclick="return confirm('Delete {{person.name}} ?')">Delete</a></td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+      </table>   
 {% endblock %}
